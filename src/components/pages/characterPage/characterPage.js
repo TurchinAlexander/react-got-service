@@ -1,9 +1,9 @@
 import React from 'react';
-import ItemList from '../itemList';
-import CharDetails, {Field} from '../charDetails';
-import ErrorMessage from '../errorMessage';
-import GotService from '../../services/gotService';
-import RowBlock from '../rowBlock';
+import ItemList from '../../itemList';
+import CharDetails, {Field} from '../../charDetails';
+import ErrorMessage from '../../errorMessage';
+import GotService from '../../../services/gotService';
+import RowBlock from '../../rowBlock';
 
 class CharacterPage extends React.Component {
     

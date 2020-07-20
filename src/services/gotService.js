@@ -31,21 +31,21 @@ export default class GotService {
     getAllHouses = async () => 
         await this._transfromGenericAsync(
             () => this.getResource(`/houses/`),
-            this._transformCharacter,
+            this._transformHouse,
             true
         );
 
     getHouse = async (id) =>  
         await this._transfromGenericAsync(
             () => this.getResource(`/houses/${id}`),
-            this._transformCharacter,
+            this._transformHouse,
             false
         );
 
     getAllBooks = async () =>  
         await this._transfromGenericAsync(
             () => this.getResource(`/books/`),
-            this._transformCharacter,
+            this._transformBook,
             true
         );
     
@@ -53,7 +53,7 @@ export default class GotService {
     getBook = async (id) => 
         await this._transfromGenericAsync(
             () => this.getResource(`/books/${id}`),
-            this._transformCharacter,
+            this._transformBook,
             false
         );
 

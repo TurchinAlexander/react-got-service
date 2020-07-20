@@ -22,12 +22,11 @@ class ItemList extends Component {
 
     renderItems(chars) {
         return chars.map((item, i) => {
-            const {id} = item;
             const label = this.props.renderItem(item);
 
             return (
                 <li
-                    key = {id}
+                    key = {i}
                     className="list-group-item"
                     onClick={() => this.props.onItemSelected(i)}
                 >

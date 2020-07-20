@@ -3,11 +3,13 @@ import {Col, Row, Container} from 'reactstrap';
 import Header from '../header';
 import RandomChar from '../randomChar';
 import ErrorMessage from '../errorMessage';
-import CharacterPage from '../characterPage';
+import CharacterPage from '../pages/characterPage';
 
 import ItemList from '../itemList';
 import CharDetails from '../charDetails';
 import GotService from '../../services/gotService';
+import BookPage from '../pages/bookPage';
+import HousePage from '../pages/housePage/housePage';
 
 class App extends React.Component {
     gotService = new GotService();
@@ -57,35 +59,9 @@ class App extends React.Component {
                             </button>
                         </Col>
                     </Row>
-                    <CharacterPage/>
-                    <Row>
-                        <Col md='6'>
-                            <ItemList 
-                                onItemSelected={this.onItemSelected}
-                                getData={this.gotService.getAllBooks}
-                                renderItem={(item) => (<><span>{item.name}</span><button>Click me</button></>)}
-                            />
-                        </Col>
-                        <Col md='6'>
-                            <CharDetails 
-                                charId={this.state.selectedChar}
-                            />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md='6'>
-                            <ItemList 
-                                onItemSelected={this.onItemSelected}
-                                getData={this.gotService.getAllHouses}
-                                renderItem={(item) => `${item.name}`}
-                            />
-                        </Col>
-                        <Col md='6'>
-                            <CharDetails 
-                                charId={this.state.selectedChar}
-                            />
-                        </Col>
-                    </Row>
+                    {/* <CharacterPage/> */}
+                    {/* <BookPage/> */}
+                    <HousePage/>
                 </Container>
             </>
         );
