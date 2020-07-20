@@ -63,6 +63,7 @@ class App extends React.Component {
                             <ItemList 
                                 onCharSelected={this.onCharSelected}
                                 getData={this.gotService.getAllBooks}
+                                renderItem={(item) => (<><span>{item.name}</span><button>Click me</button></>)}
                             />
                         </Col>
                         <Col md='6'>
@@ -76,6 +77,7 @@ class App extends React.Component {
                             <ItemList 
                                 onCharSelected={this.onCharSelected}
                                 getData={this.gotService.getAllHouses}
+                                renderItem={(item) => `${item.name}`}
                             />
                         </Col>
                         <Col md='6'>

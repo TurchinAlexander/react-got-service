@@ -40,6 +40,7 @@ class CharacterPage extends React.Component {
                     <ItemList 
                         onCharSelected={this.onCharSelected}
                         getData={this.gotService.getAllCharacters}
+                        renderItem={({name, gender}) => `${name} (${gender})`}
                     />
                 </Col>
                 <Col md='6'>
