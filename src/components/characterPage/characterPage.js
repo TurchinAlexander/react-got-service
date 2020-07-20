@@ -1,11 +1,13 @@
 import React from 'react';
-import {Col, Row, Container} from 'reactstrap';
+import {Col, Row} from 'reactstrap';
 import ItemList from '../itemList';
 import CharDetails from '../charDetails';
 import ErrorMessage from '../errorMessage';
+import GotService from '../../services/gotService';
 
 class CharacterPage extends React.Component {
     
+    gotService = new GotService();
     state = {
         selectedChar: 130,
         error: false
@@ -37,6 +39,7 @@ class CharacterPage extends React.Component {
                 <Col md='6'>
                     <ItemList 
                         onCharSelected={this.onCharSelected}
+                        getData={this.gotService.getAllCharacters}
                     />
                 </Col>
                 <Col md='6'>

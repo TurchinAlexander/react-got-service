@@ -3,7 +3,7 @@ export default class GotService {
         this._apiBase = 'https://www.anapioficeandfire.com/api';
     }
 
-    async getResource (url) {
+    getResource = async (url) => {
         const res = await fetch(`${this._apiBase}${url}`);
 
         if (!res.ok) {
@@ -14,33 +14,48 @@ export default class GotService {
         
     }
 
-    async getAllCharacters() {
-        const result = await this.getResource(`/characters?page=5&pageSize=10`);
+    getAllCharacters = async () => 
+        await this._transfromGenericAsync(
+            () => this.getResource(`/characters?page=5&pageSize=10`),
+            this._transformCharacter,
+            true
+        );
 
-        return result.map((item) => this._transformCharacter(item));
-    }
+    getCharacter = async (id) => 
+        await this._transfromGenericAsync(
+            () => this.getResource(`/characters/${id}`),
+            this._transformCharacter,
+            false
+        );
 
-    async getCharacter(id) {
-        const result = await this.getResource(`/characters/${id}`);
+    getAllHouses = async () => 
+        await this._transfromGenericAsync(
+            () => this.getResource(`/houses/`),
+            this._transformCharacter,
+            true
+        );
 
-        return this._transformCharacter(result);
-    }
+    getHouse = async (id) =>  
+        await this._transfromGenericAsync(
+            () => this.getResource(`/houses/${id}`),
+            this._transformCharacter,
+            false
+        );
 
-    getAllHouses() {
-        return this.getResource(`/houses/`);
-    }
+    getAllBooks = async () =>  
+        await this._transfromGenericAsync(
+            () => this.getResource(`/books/`),
+            this._transformCharacter,
+            true
+        );
+    
 
-    getHouse(id) {
-        return this.getResource(`/houses/${id}`);
-    }
-
-    getAllBooks() {
-        return this.getResource(`/books/`);
-    }
-
-    getBook(id) {
-        return this.getResource(`/books/${id}`);
-    }
+    getBook = async (id) => 
+        await this._transfromGenericAsync(
+            () => this.getResource(`/books/${id}`),
+            this._transformCharacter,
+            false
+        );
 
     _transformCharacter(char) {
         return {
@@ -70,5 +85,15 @@ export default class GotService {
             publisher: book.publisher,
             released: book.released
         }
+    }
+
+    _transfromGenericAsync = async (asyncCallFunction, transfromFunction, isArrayResult) => {
+        const result = await asyncCallFunction();
+
+        if (isArrayResult) {
+            return result.map((item) => transfromFunction(item));
+        }
+
+        return transfromFunction(result);
     }
 }

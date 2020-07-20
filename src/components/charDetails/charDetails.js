@@ -35,8 +35,6 @@ class CharDetails extends Component {
                     char
                 });
             });
-
-        this.foo.bar = 1;
     }
 
     render() {
