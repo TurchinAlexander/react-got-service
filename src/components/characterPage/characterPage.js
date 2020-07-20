@@ -9,13 +9,13 @@ class CharacterPage extends React.Component {
     
     gotService = new GotService();
     state = {
-        selectedChar: 130,
+        selectedItem: 130,
         error: false
     }
 
     onItemSelected = (id) => {
         this.setState({
-            selectedChar: id
+            selectedItem: id
         });
     }
 
@@ -44,7 +44,9 @@ class CharacterPage extends React.Component {
 
         const charDetails = (
             <CharDetails 
-                charId={this.state.selectedChar}
+                itemId={this.state.selectedItem}
+                getData={this.gotService.getCharacter}
+                askMessage={`Please select a character`}
             >
                 <Field field='gender' label='Gender'/>
                 <Field field='born' label='Born'/>

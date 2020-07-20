@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import './charDetails.css';
 
-import GotService from '../../services/gotService';
-
-const Field = ({char, field, label}) => {
+const Field = ({item, field, label}) => {
     return (
         <li className="list-group-item d-flex justify-content-between">
             <span className="term">{label}</span>
-            <span>{char[field]}</span>
+            <span>{item[field]}</span>
         </li>
     );
 }
@@ -15,47 +13,46 @@ const Field = ({char, field, label}) => {
 export {Field};
 
 class CharDetails extends Component {
-
-    gotService = new GotService();
-
     state = {
-        char: null
+        item: null
     }
 
     componentDidMount() {
-        this.updateChar();
+        this.updateItem();
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.charId === prevProps.charId) {
+        if (this.props.itemId === prevProps.itemId) {
             return;
         }
 
-        this.updateChar();
+        this.updateItem();
     }
 
-    updateChar() {
-        const {charId} = this.props;
-        if (!charId) {
+    updateItem() {
+        const {itemId, getData} = this.props;
+        if (!itemId) {
             return;
         }
 
-        this.gotService.getCharacter(charId)
-            .then((char) => {
+        getData(itemId)
+            .then((item) => {
                 this.setState({
-                    char
+                    item
                 });
             });
     }
 
     render() {
         
-        if (!this.state.char) {
-            return <span className="select-error">Please select a character</span>
+        const {item} = this.state
+        const {askMessage} = this.props;
+
+        if (!item) {
+            return <span className="select-error">{askMessage}</span>
         }
 
-        const {char} = this.state;
-        const {name} = char;
+        const {name} = item;
         
         return (
             <div className="char-details rounded">
@@ -63,7 +60,7 @@ class CharDetails extends Component {
                 <ul className="list-group list-group-flush">
                     {
                         React.Children.map(this.props.children, (child) => {
-                            return React.cloneElement(child, {char});
+                            return React.cloneElement(child, {item});
                         })
                     }
                 </ul>
