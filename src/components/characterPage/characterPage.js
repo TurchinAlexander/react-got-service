@@ -1,6 +1,6 @@
 import React from 'react';
 import ItemList from '../itemList';
-import CharDetails from '../charDetails';
+import CharDetails, {Field} from '../charDetails';
 import ErrorMessage from '../errorMessage';
 import GotService from '../../services/gotService';
 import RowBlock from '../rowBlock';
@@ -13,7 +13,7 @@ class CharacterPage extends React.Component {
         error: false
     }
 
-    onCharSelected = (id) => {
+    onItemSelected = (id) => {
         this.setState({
             selectedChar: id
         });
@@ -36,7 +36,7 @@ class CharacterPage extends React.Component {
 
         const itemList = (
             <ItemList 
-                onCharSelected={this.onCharSelected}
+                onItemSelected={(i) => this.onItemSelected(41 + i)}
                 getData={this.gotService.getAllCharacters}
                 renderItem={({name, gender}) => `${name} (${gender})`}
             />
@@ -45,7 +45,12 @@ class CharacterPage extends React.Component {
         const charDetails = (
             <CharDetails 
                 charId={this.state.selectedChar}
-            />
+            >
+                <Field field='gender' label='Gender'/>
+                <Field field='born' label='Born'/>
+                <Field field='died' label='Died'/>
+                <Field field='culture' label='Culture'/>
+            </CharDetails>
         );
 
         return (
