@@ -52,7 +52,7 @@ class HousePage extends React.Component {
                 <Field field='words' label='Words'/>
                 <Field field='titles' label='Titles'/>
                 <Field field='seats' label='Seats'/>
-                <Field field='overlord' label='Current Lord'/>
+                <Field field='currentLord' label='Current Lord'/>
                 <Field field='ancestraWeapons' label='Ancestra Weapons'/>
             </CharDetails>
         );
