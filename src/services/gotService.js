@@ -57,33 +57,33 @@ export default class GotService {
             false
         );
 
-    _transformCharacter(char) {
+    _transformCharacter = (char) => {
         return {
-            name: char.name,
-            gender: char.gender,
-            born: char.born,
-            died: char.died,
-            culture: char.culture
+            name: this._getData(char.name),
+            gender: this._getData(char.gender),
+            born: this._getData(char.born),
+            died: this._getData(char.died),
+            culture: this._getData(char.culture)
         };
     }
 
-    _transformHouse(house) {
+    _transformHouse = (house) => {
         return {
-            name: house.name,
-            region: house.region,
-            words: house.words,
-            titles: house.titles,
-            overlord: house.overlord,
-            ancestraWeapons: house.ancestraWeapons
+            name: this._getData(house.name),
+            region: this._getData(house.region),
+            words: this._getData(house.words),
+            titles: this._getData(house.titles),
+            overlord: this._getData(house.overlord),
+            ancestraWeapons: this._getData(house.ancestraWeapons)
         }
     }
 
-    _transformBook(book) {
+    _transformBook = (book) => {
         return {
-            name: book.name,
-            numberOfPages: book.numberOfPages,
-            publisher: book.publisher,
-            released: book.released
+            name: this._getData(book.name),
+            numberOfPages: this._getData(book.numberOfPages),
+            publisher: this._getData(book.publisher),
+            released: this._getData(book.released)
         }
     }
 
@@ -95,5 +95,13 @@ export default class GotService {
         }
 
         return transfromFunction(result);
+    }
+
+    _getData = (data) => {
+        if (!data) {
+            return 'No data :(';
+        }
+
+        return data;
     }
 }
