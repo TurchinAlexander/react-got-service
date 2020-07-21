@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './charDetails.css';
+import './itemDetails.css';
 
 const Field = ({item, field, label}) => {
     return (
@@ -12,7 +12,7 @@ const Field = ({item, field, label}) => {
 
 export {Field};
 
-class CharDetails extends Component {
+class ItemDetails extends Component {
     state = {
         item: null
     }
@@ -69,4 +69,4 @@ class CharDetails extends Component {
     }
 }
 
-export default CharDetails;
+export default ItemDetails;

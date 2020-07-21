@@ -28,7 +28,7 @@ class ItemList extends Component {
                 <li
                     key = {i}
                     className="list-group-item"
-                    onClick={() => this.props.onItemSelected(i)}
+                    onClick={() => this.props.onItemSelected(i + 1)}
                 >
                     {label}
                 </li>

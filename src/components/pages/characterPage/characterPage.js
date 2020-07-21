@@ -1,6 +1,6 @@
 import React from 'react';
 import ItemList from '../../itemList';
-import CharDetails, {Field} from '../../charDetails';
+import ItemDetails, {Field} from '../../itemDetails';
 import ErrorMessage from '../../errorMessage';
 import GotService from '../../../services/gotService';
 import RowBlock from '../../rowBlock';
@@ -43,7 +43,7 @@ class CharacterPage extends React.Component {
         );
 
         const charDetails = (
-            <CharDetails 
+            <ItemDetails 
                 itemId={this.state.selectedItem}
                 getData={this.gotService.getCharacter}
                 askMessage={`Please select a character`}
@@ -52,7 +52,7 @@ class CharacterPage extends React.Component {
                 <Field field='born' label='Born'/>
                 <Field field='died' label='Died'/>
                 <Field field='culture' label='Culture'/>
-            </CharDetails>
+            </ItemDetails>
         );
 
         return (
