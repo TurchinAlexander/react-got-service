@@ -36,7 +36,7 @@ class HousePage extends React.Component {
 
         const itemList = (
             <ItemList 
-                onItemSelected={(i) => this.onItemSelected(i + 1)}
+                // onItemSelected={(i) => this.onItemSelected(i + 1)}
                 getData={this.gotService.getAllHouses}
                 renderItem={({name, gender}) => `${name}`}
             />

@@ -32,7 +32,7 @@ class BookPage extends React.Component {
                 onItemSelected={(itemId) => {
                     const {history} = this.props;
 
-                    history.push(itemId);
+                    history.push(`${itemId}`);
                 }}
                 getData={this.gotService.getAllBooks}
                 renderItem={({name, gender}) => `${name}`}
