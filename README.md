@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Game of Thrones site
 
-## Available Scripts
+This project was done due JavaScript learning on [Udemy course](https://www.udemy.com/course/javascript_full/).
 
-In the project directory, you can run:
+The project is about Game of Thones. It provides the information about:
 
-### `npm start`
+-   Characters
+-   Houses
+-   Books
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Main features
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+The project is done like a SPA application. It means that it doesn't loading when you click on the link.  
+The main site windows looks like this.
+![Main window](/ReadmeImages/Main.png)
 
-### `npm test`
+It has a random character panel where you can learn about a some character.
+![Random Character](/ReadmeImages/random_character.png)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Also it has three section described above:
 
-### `npm run build`
+-   Characters
+    ![Character site page](/ReadmeImages/Character.png)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-   Houses
+    ![Houses](/ReadmeImages/Houes.png)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+-   Books
+    ![Books](/ReadmeImages/Books.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The detailed book page is done as distinct page in order to have a practice with `React.Router` component.
+![Book page](/ReadmeImages/Book.png)
 
-### `npm run eject`
+## The setup
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. Install [npm](https://www.npmjs.com/get-npm)
+1. Open the project using your favorite editor.
+1. In command promt navigate to the application folder.
+1. Run `npm install`
+1. Run `npx webpack`. It will build the JavaScript modules to one bundle.
+1. Open **index.html** in your browser.
+1. So the site should be up and running.
